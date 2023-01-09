@@ -1,11 +1,29 @@
-import Categories from "./components/categories/categories.component";
-import categoryList from "./components/data/categories.json";
+import { Routes, Route } from "react-router-dom";
+import Home from "./routes/home/home.component";
+import Navigation from "./routes/navigation/navigation.component";
 
-const categories = categoryList.category;
-
+const Shop = () => {
+	return <h1>I am the shop page</h1>;
+};
 
 const App = () => {
-	return <Categories categories={categories} />;
+	return (
+		<Routes>
+			<Route
+				path="/"
+				element={<Navigation />}
+			>
+				<Route
+					index
+					element={<Home />}
+				/>
+				<Route
+					path="shop"
+					element={<Shop />}
+				/>
+			</Route>
+		</Routes>
+	);
 };
 
 export default App;
