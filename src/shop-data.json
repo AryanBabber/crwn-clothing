@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Brown Brim",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0276/2060/6023/products/Edit_119_2000x.jpg?v=1606159280",
+    "price": 155
+  },
+  {
+    "id": 2,
+    "name": "Blue Beanie",
+    "imageUrl": "https://rukminim1.flixcart.com/image/832/832/kubk70w0/cap/k/a/v/free-checky-blued-beanie-cap-knotyy-original-imag7gvtjrtpvajn.jpeg?q=70",
+    "price": 18
+  },
+  {
+    "id": 3,
+    "name": "Brown Cowboy",
+    "imageUrl": "https://horseyhooves.com/wp-content/uploads/2022/12/Rip-Wheeler-wearing-a-dark-brown-cowboy-hat.jpg",
+    "price": 35
+  },
+  {
+    "id": 4,
+    "name": "Grey Brim",
+    "imageUrl": "https://5.imimg.com/data5/QK/VA/JG/SELLER-2482543/chemo-visor-cap-500x500.jpg",
+    "price": 25
+  },
+  {
+    "id": 5,
+    "name": "Green Beanie",
+    "imageUrl": "https://rukminim1.flixcart.com/image/832/832/khp664w0-0/cap/a/m/k/free-mens-woolen-cap-myy-original-imafxnfy2qvezyyf.jpeg?q=70",
+    "price": 18
+  },
+  {
+    "id": 6,
+    "name": "Palm Tree Cap",
+    "imageUrl": "https://m.media-amazon.com/images/I/81-0ooVI1BL._UL1500_.jpg",
+    "price": 14
+  },
+  {
+    "id": 7,
+    "name": "Red Beanie",
+    "imageUrl": "https://rukminim1.flixcart.com/image/832/832/xif0q/cap/k/p/a/free-unisex-winter-with-neck-scarf-woven-beanie-zonkar-original-imagjubg3mbtjstm.jpeg?q=70",
+    "price": 18
+  },
+  {
+    "id": 8,
+    "name": "Wolf Cap",
+    "imageUrl": "https://aesthenics.in/home/wp-content/uploads/2022/06/Rebel-Wolf-Cap-Single-Tone-WHITE-Side.png",
+    "price": 14
+  },
+  {
+    "id": 9,
+    "name": "Blue Snapback",
+    "imageUrl": "https://images.bestsellerclothing.in/data/JJ/5-Aug-2022/108832601_g0.jpg?width=1080&height=1355&mode=fill&fill=blur&format=auto",
+    "price": 16
+  }
+]
