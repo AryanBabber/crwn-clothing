@@ -43,4 +43,10 @@
         border: none;
       }
     }
+
+    &.disabled {
+      background-color: #aaa;
+      color: #777;
+      border: 1px solid #888;
+    }
   }
