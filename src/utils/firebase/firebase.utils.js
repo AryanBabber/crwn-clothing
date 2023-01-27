@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyBDAVbbw_Nz_oQn0uUvC7hFqtNwROVtGC4",
@@ -24,6 +24,26 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (key, objects) => {
+	const collectionRef = collection(db, key);
+	const batch = writeBatch(db);
+
+	objects.forEach((object) => {
+		const docRef = doc(collectionRef, object.title.toLowerCase());
+		batch.set(docRef, object);
+	});
+
+	await batch.commit();
+	console.log("done");
+};
+
+export const getCategoriesAndDocuments = async () => {
+	const collections = collection(db, 'categories')
+	const queryCollection = query(collections)
+
+	const querySnapshot = await getDocs(queryCollection)
+}
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
 	if (!userAuth) return;
@@ -65,4 +85,4 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback, errorCallback, completedCallback) => onAuthStateChanged(auth, callback, errorCallback, completedCallback)
+export const onAuthStateChangedListener = (callback, errorCallback, completedCallback) => onAuthStateChanged(auth, callback, errorCallback, completedCallback);

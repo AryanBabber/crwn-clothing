@@ -1,23 +1,14 @@
 import { createContext, useState, useEffect } from "react";
+import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils";
 
-import shopData from '../shop-data.json'
 
 export const ProductContext = createContext({
 	currentProduct: [],
 });
 export const ProductProvider = ({ children }) => {
-	const [currentProduct, setCurrentProduct] = useState(shopData);
+	const [currentProduct, setCurrentProduct] = useState([]);
+	
 	const value = { currentProduct };
-
-	// useEffect(() => {
-	// 	const unsubscribe = onAuthStateChangedListener((user) => {
-    //         if (user) {
-    //             createUserDocumentFromAuth(user)
-    //         }
-    //         setCurrentUser(user);
-	// 	});
-
-	// 	return unsubscribe;
-	// }, []);
+	
 	return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
 };
