@@ -1,4 +1,4 @@
-import Categories from "../../components/categories/categories.component";
+import Directory from "../../components/directory/directory.component";
 import categoryList from "../../components/data/categories.json";
 import { Outlet } from "react-router-dom";
 const categories = categoryList.category;
@@ -7,7 +7,7 @@ const categories = categoryList.category;
 const Home = () => {
 	return (
         <div>
-            <Categories categories={categories} />
+            <Directory categories={categories} />
             <Outlet />
         </div>
     );
