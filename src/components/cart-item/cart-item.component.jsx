@@ -1,20 +1,20 @@
-import "./cart-item.styles.scss";
+import {CartItemContainer, CartImage, ItemDetails, Name} from "./cart-item.styles";
 
 const CartItem = ({ CartItem }) => {
 	const { name, quantity, imageUrl, price } = CartItem;
 	return (
-		<div className="cart-item-container">
-			<img
+		<CartItemContainer>
+			<CartImage
 				src={imageUrl}
 				alt={name}
 			/>
-			<div className="item-details">
-				<span className="name">{name}</span>
+			<ItemDetails>
+				<Name>{name}</Name>
 				<span className="price">
 					{quantity} x ${price}
 				</span>
-			</div>
-		</div>
+			</ItemDetails>
+		</CartItemContainer>
 	);
 };
 
