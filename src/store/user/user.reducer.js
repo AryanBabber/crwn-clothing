@@ -13,7 +13,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
 				currentUser: payload,
 			};
 		default:
-            return state;
-			// throw new Error(`Unhandled type ${type} in userReducer`);
+			return state;
+		// throw new Error(`Unhandled type ${type} in userReducer`);
 	}
 };

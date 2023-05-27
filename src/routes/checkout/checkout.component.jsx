@@ -34,7 +34,7 @@ const Checkout = () => {
 					/>
 				);
 			})}
-            <span className="total">Total: {cartTotal > 0 ? `$${cartTotal}` : cartTotal}</span>
+			<span className="total">Total: {cartTotal > 0 ? `$${cartTotal}` : cartTotal}</span>
 		</div>
 	);
 };

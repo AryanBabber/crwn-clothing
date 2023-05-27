@@ -15,24 +15,12 @@ const CheckoutItem = ({ cartItem }) => {
 			</ImageContainer>
 			<Vals>{name}</Vals>
 			<Quantity>
-				<Arrow
-					onClick={() => removeItemFromCart(cartItem)}
-				>
-					&#10094;
-				</Arrow>
+				<Arrow onClick={() => removeItemFromCart(cartItem)}>&#10094;</Arrow>
 				<Value>{quantity}</Value>
-				<Arrow
-					onClick={() => addItemToCart(cartItem)}
-				>
-					&#10095;
-				</Arrow>
+				<Arrow onClick={() => addItemToCart(cartItem)}>&#10095;</Arrow>
 			</Quantity>
 			<Vals>{price}</Vals>
-			<RemoveBtn
-				onClick={() => clearItemFromCart(cartItem)}
-			>
-				&#10005;
-			</RemoveBtn>
+			<RemoveBtn onClick={() => clearItemFromCart(cartItem)}>&#10005;</RemoveBtn>
 		</CheckoutItemContainer>
 	);
 };

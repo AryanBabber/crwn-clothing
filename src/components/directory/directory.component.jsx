@@ -1,4 +1,4 @@
-import {DirectoryContainer} from "./directory.styles";
+import { DirectoryContainer } from "./directory.styles";
 import DirectoryItem from "../directory-item/directory-item.component";
 import categoryList from "../../components/data/categories.json";
 const categories = categoryList.category;

@@ -4,7 +4,7 @@ import { BackgroundImage, Body, DirectoryItemContainer } from "./directory-item.
 const DirectoryItem = ({ title, imageUrl, route }) => {
 	const navigate = useNavigate();
 
-	const navigateHandler = () => navigate(route)
+	const navigateHandler = () => navigate(route);
 	return (
 		<DirectoryItemContainer onClick={navigateHandler}>
 			<BackgroundImage imageUrl={imageUrl} />
