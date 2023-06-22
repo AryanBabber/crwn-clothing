@@ -1,5 +1,10 @@
 import ProductCard from "../product-card/product-card.component";
-import { CategoryPreviewContainer, Title, Preview } from "./category-preview.styles";
+
+import {
+	CategoryPreviewContainer,
+	Title,
+	Preview,
+} from "./category-preview.styles";
 
 const CategoryPreview = ({ title, products }) => {
 	return (
@@ -9,7 +14,7 @@ const CategoryPreview = ({ title, products }) => {
 			</h2>
 			<Preview>
 				{products
-					.filter((_, i) => i < 4)
+					.filter((_, idx) => idx < 4)
 					.map((product) => (
 						<ProductCard
 							key={product.id}

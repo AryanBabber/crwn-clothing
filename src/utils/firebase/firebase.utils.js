@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./firebase.config"; 
+
 import {
 	getAuth,
 	signInWithRedirect,
@@ -20,15 +22,6 @@ import {
 	getDocs,
 } from "firebase/firestore";
 
-const firebaseConfig = {
-	apiKey: "AIzaSyBDAVbbw_Nz_oQn0uUvC7hFqtNwROVtGC4",
-	authDomain: "crwn-clothing-db-487d4.firebaseapp.com",
-	projectId: "crwn-clothing-db-487d4",
-	storageBucket: "crwn-clothing-db-487d4.appspot.com",
-	messagingSenderId: "546895984921",
-	appId: "1:546895984921:web:6d7e1ea6955cd943b96d88",
-};
-
 const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
@@ -45,11 +38,15 @@ export const signInWithGoogleRedirect = () =>
 
 export const db = getFirestore();
 
-export const addCollectionAndDocuments = async (key, objects) => {
-	const collectionRef = collection(db, key);
+export const addCollectionAndDocuments = async (
+	collectionKey,
+	objectsToAdd,
+	field
+) => {
+	const collectionRef = collection(db, collectionKey);
 	const batch = writeBatch(db);
 
-	objects.forEach((object) => {
+	objectsToAdd.forEach((object) => {
 		const docRef = doc(collectionRef, object.title.toLowerCase());
 		batch.set(docRef, object);
 	});
@@ -59,10 +56,10 @@ export const addCollectionAndDocuments = async (key, objects) => {
 };
 
 export const getCategoriesAndDocuments = async () => {
-	const collections = collection(db, "categories");
-	const queryCollection = query(collections);
+	const collectionRef = collection(db, "categories");
+	const q = query(collectionRef);
 
-	const querySnapshot = await getDocs(queryCollection);
+	const querySnapshot = await getDocs(q);
 	return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
@@ -92,7 +89,7 @@ export const createUserDocumentFromAuth = async (
 		}
 	}
 
-	return userSnapshot;
+	return userDocRef;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -109,21 +106,5 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (
-	callback,
-	errorCallback,
-	completedCallback
-) => onAuthStateChanged(auth, callback, errorCallback, completedCallback);
-
-export const getCurrentUser = () => {
-	return new Promise((resolve, reject) => {
-		const unsubscribe = onAuthStateChanged(
-			auth,
-			(userAuth) => {
-				unsubscribe();
-				resolve(userAuth);
-			},
-			reject
-		);
-	});
-};
+export const onAuthStateChangedListener = (callback) =>
+	onAuthStateChanged(auth, callback);
